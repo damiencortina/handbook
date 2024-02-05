@@ -69,7 +69,7 @@ This case can be treated with equality narrowing.
 
 ## Equality narrowing
 
-TypeScript also uses switch statements and equality checks like ===, !==, ==, and != to narrow types.
+TypeScript also uses switch statements and equality checks like `===`, `!==`, `==`, and `!=` to narrow types.
 
 ### Checking by comparing variables
 
@@ -93,9 +93,7 @@ function printAll(strs: string | string[] | null) {
 }
 ```
 
-### Use looser checks to remove both `null` and `undefined`
-
-**looser checks :** == and !=
+### Use looser checks ( `==` and `!=` ) to remove both `null` and `undefined`
 
 ```javascript
 interface Container {

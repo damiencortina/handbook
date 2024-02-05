@@ -53,7 +53,7 @@ The following values coerce to false, while everything else coerce to true :
 
 **warning :** Truthiness checking on primitives can be error prone
 
-```javascript
+```typescript
 function  printAll(strs: string | string[] | null) {
     if (strs) { // this is filtering out "" and [], whose types are corrects, but coerce to false...
         if (typeof  strs === "object") {
@@ -73,7 +73,7 @@ TypeScript also uses switch statements and equality checks like `===`, `!==`, `=
 
 ### Checking by comparing variables
 
-```javascript
+```typescript
 function example(x: string | number, y: string | boolean) {
   if (x === y) { // if x === y, they both are strings, since its their only common type
     // do stuff
@@ -83,7 +83,7 @@ function example(x: string | number, y: string | boolean) {
 
 ### Checking by comparing litteral values
 
-```javascript
+```typescript
 function printAll(strs: string | string[] | null) {
   if (strs !== null) { // returns false if strs value is null ("" and [] are in)
   }
@@ -95,7 +95,7 @@ function printAll(strs: string | string[] | null) {
 
 ### Use looser checks ( `==` and `!=` ) to remove both `null` and `undefined`
 
-```javascript
+```typescript
 interface Container {
   value: number | null | undefined;
 }
@@ -105,6 +105,40 @@ function multiplyValue(container: Container, factor: number) {
   if (container.value != null) {
   // do stuff
   }
+}
+```
+
+## `in` narrowing
+
+```typescript
+type  Fish = { swim: () =>  void };
+type  Bird = { fly: () =>  void };
+type  Human = { swim?: () =>  void; fly?: () =>  void };
+
+function  move(animal: Fish | Bird | Human) {
+	// Optionnal properties exists on both sides
+	if ("swim"  in  animal) {
+		// animal is Fish | Human since :
+		//   - Fish has a swim method
+		//   - Human might have a swim method
+	} else {
+		// animal is Bird | Human since :
+		//   - Bird has no method named swim
+		//   - Human might not have a swim method
+	}
+}
+```
+
+## `instanceof` narrowing
+
+```typescript
+function  logValue(x: Date | string) {
+	// This works well with values that can be constructed with new
+	if (x  instanceof  Date) {
+		// x is a Date
+	} else {
+		// x is a string
+	}
 }
 ```
 

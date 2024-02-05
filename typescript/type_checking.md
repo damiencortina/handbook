@@ -151,4 +151,15 @@ function  logValue(x: Date | string) {
 }
 ```
 
+## Assignment narrowing
+
+```typescript
+let  x = Math.random() < 0.5 ? 10 : "hello world!";
+// x is string | number
+x = 1;
+// x is number
+x = "goodbye!";
+// x is string (it's valid even if it was previously a number since x was DECLARED as being string | number
+```
+
 > Written with [StackEdit](https://stackedit.io/).

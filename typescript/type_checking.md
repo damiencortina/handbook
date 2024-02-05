@@ -27,8 +27,8 @@ There are a couple of different constructs TypeScript understands for narrowing.
 
 **important :**
 
-- `typeof array` is object
-- In JavaScript, `typeof null` is actually `"object"`, to filter this out we might need truthiness narrowing
+- `typeof array` is `"object"`
+- `typeof null` is `"object"`, to filter this out we might need truthiness narrowing
 
 ## Truthiness narrowing
 

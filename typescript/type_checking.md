@@ -9,10 +9,10 @@ In many editors we can observe these types as they change
 
 There are a couple of different constructs TypeScript understands for narrowing.
 
-## 1. Type guard
+**type guard** : Within our if check, TypeScript sees `typeof padding === "number"` and understands that as a special form of code.
  🥐"garde de type"🥐
 
-**type guard** : Within our if check, TypeScript sees `typeof padding === "number"` and understands that as a special form of code
+## 1. `typeof` narrowing
 
 `typeof` might return the following values :
 
@@ -25,16 +25,27 @@ There are a couple of different constructs TypeScript understands for narrowing.
 - `"object"`
 - `"function"`
 
+```typescript
+function  printAll(strs: string | number | null) {
+	if (typeof  strs === "string") {
+		// strs is a string
+	} else if (typeof  strs === "string") {
+		// strs is a number
+	} else {
+		// strs is null
+	}
+```
+
 **important :**
 
 - `typeof array` is `"object"`
-- `typeof null` is `"object"`, to filter this out we might need truthiness narrowing
+- `typeof null` is `"object"`
 
 ## Truthiness narrowing
 
-To exclure null, we might use :
+To exclude null, we might use :
 
-```
+```typescript
 if (strs && typeof strs === "object") {
 ```
 
@@ -67,9 +78,7 @@ function  printAll(strs: string | string[] | null) {
 
 This case can be treated with equality narrowing.
 
-## Equality narrowing
-
-TypeScript also uses switch statements and equality checks like `===`, `!==`, `==`, and `!=` to narrow types.
+## `===`, `!==`, `==`, and `!=` narrowing
 
 ### Checking by comparing variables
 

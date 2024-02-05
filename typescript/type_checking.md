@@ -15,16 +15,18 @@ There are a couple of different constructs TypeScript understands for narrowing.
 **type guard** : Within our if check, TypeScript sees `typeof padding === "number"` and understands that as a special form of code
 
 `typeof` might return the following values :
-- "string"
-- "number"
-- "bigint"
-- "boolean"
-- "symbol"
-- "undefined"
-- "object"
-- "function"
+
+- `"string"`
+- `"number"`
+- `"bigint"`
+- `"boolean"`
+- `"symbol"`
+- `"undefined"`
+- `"object"`
+- `"function"`
 
 **important :**
+
 - `typeof array` is object
 - In JavaScript, `typeof null` is actually `"object"`, to filter this out we might need truthiness narrowing
 

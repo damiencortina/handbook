@@ -6,6 +6,12 @@ Equivalent to :
  - `docker container list`
  - `docker container ls`
 
-List containers
+List running containers
+
+**usefull options :**
+
+| option | description |
+|--|--|
+| `-a` or `--all` | Show all containers |
 
 > Written with [StackEdit](https://stackedit.io/).
